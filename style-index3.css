@@ -1,0 +1,404 @@
+/* =========================
+   STYLE PRINCIPAL - DEMNA DESIGN
+   ========================= */
+
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap');
+
+:root {
+  --primary: #FF6600;
+  --secondary: #0D1B2A;
+  --accent: #2ECC71;
+  --light: #F5F5F5;
+  --dark: #333333;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: var(--secondary);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+nav .logo {
+  max-height: 45px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+  color: var(--primary);
+}
+
+/* ===== BURGER MENU ===== */
+.burger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* ===== HERO AVEC VIDEO ===== */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#hero .hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+#hero .hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* voile sombre */
+  z-index: -1;
+}
+
+#hero .hero-content {
+  color: #fff;
+  padding: 0 1rem;
+}
+
+#hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+#hero .btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+#hero .btn:hover {
+  background: var(--accent);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 5rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--secondary);
+  border-left: 5px solid var(--primary);
+  padding-left: .5rem;
+  text-align: center;
+}
+
+/* ===== PACKS ===== */
+#pricing {
+  text-align: center;
+}
+#pricing .pack-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+#pricing .pack {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 0 1 280px;
+  transition: all 0.3s ease;
+}
+#pricing .pack:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 1px solid var(--primary);
+}
+#pricing .btn {
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+/* ===== SERVICES ===== */
+#services {
+  text-align: center;
+  margin-top: 4rem;
+}
+#services .service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+#services .service {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: 600;
+  flex: 0 1 240px;
+  transition: all 0.3s ease;
+}
+#services .service:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+#services .btn {
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+/* ===== VALEURS ===== */
+#values {
+  text-align: center;
+  margin-top: 4rem;
+}
+#values .values-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: 900px;
+}
+#values .value {
+  background: #fff;
+  padding: 1.2rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 5px;
+  flex: 0 1 240px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+#values .value:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+#values .btn {
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+/* ===== PORTFOLIO ===== */
+#portfolio {
+  text-align: center;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.portfolio-item:hover img {
+  transform: scale(1.1);
+}
+.portfolio-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(13, 27, 42, 0.7);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+.portfolio-overlay h3 {
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.portfolio-overlay a {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.portfolio-overlay a:hover {
+  background: var(--accent);
+}
+
+/* ===== FAQ ===== */
+#faq {
+  text-align: center;
+}
+
+#faq .faq-item {
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#faq .faq-item:hover {
+  transform: translateX(5px);
+  border-left: 5px solid var(--primary);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+#faq h3 {
+  color: var(--primary);
+  margin-bottom: .5rem;
+  font-size: 1.2rem;
+}
+
+/* ===== CONTACT ===== */
+#contact {
+  text-align: center;
+}
+
+#contact p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+#contact a.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#contact a.btn:hover {
+  background: var(--accent);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  nav ul {
+    gap: 1rem;
+  }
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+  nav ul {
+    flex-direction: column;
+    background: var(--secondary);
+    position: absolute;
+    top: 70px; right: 0;
+    width: 200px;
+    display: none;
+    padding: 1rem;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  #hero h1 {
+    font-size: 1.8rem;
+  }
+  #hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.5rem;
+  }
+  #hero p {
+    font-size: 0.9rem;
+  }
+  section {
+    padding: 3rem 1rem;
+  }
+}

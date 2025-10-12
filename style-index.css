@@ -1,0 +1,141 @@
+/* =========================
+   STYLE PRINCIPAL - DEMNA DESIGN
+   Fichier : style-index.css
+   ========================= */
+
+/* Importation des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap');
+
+/* Variables de couleurs */
+:root {
+  --primary: #FF6600;      /* Orange créatif */
+  --secondary: #0D1B2A;    /* Bleu nuit */
+  --accent: #2ECC71;       /* Vert émeraude */
+  --light: #F5F5F5;        /* Gris clair */
+  --dark: #333333;         /* Gris anthracite */
+}
+
+/* Reset simple */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+header .logo {
+  max-width: 120px;
+  margin-bottom: 1rem;
+}
+header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+}
+header p {
+  font-style: italic;
+  margin-top: .5rem;
+  color: var(--primary);
+}
+
+/* SECTIONS */
+section {
+  padding: 3rem 1.5rem;
+  max-width: 1100px;
+  margin: auto;
+}
+section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  border-left: 5px solid var(--primary);
+  padding-left: .5rem;
+}
+
+/* SERVICES */
+#services .service {
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#services h3 {
+  color: var(--primary);
+  margin-bottom: .5rem;
+}
+
+/* VALEURS */
+#values ul {
+  list-style: none;
+}
+#values li {
+  background: #fff;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 5px;
+}
+
+/* PORTFOLIO */
+#portfolio {
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* CONTACT */
+#contact a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+#contact a:hover {
+  color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+  background: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--accent);
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  #services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  #values ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
