@@ -19,6 +19,24 @@ document.addEventListener("DOMContentLoaded", function() {
     burger.innerHTML = "&#9776;"; // icône ☰
     nav.insertBefore(burger, menu);
   }
+//VERSION PC MOBILE
+const toggleBtn = document.getElementById('toggleDesktop');
+const container = document.querySelector('.container');
+
+let desktopActive = false;
+
+toggleBtn.addEventListener('click', () => {
+  desktopActive = !desktopActive;
+  if (desktopActive) {
+    container.classList.add('desktop-mode');
+    toggleBtn.textContent = "📱"; // icône mobile
+    toggleBtn.title = "Revenir en mode mobile";
+  } else {
+    container.classList.remove('desktop-mode');
+    toggleBtn.textContent = "🖥️"; // icône ordinateur
+    toggleBtn.title = "Basculer en mode ordinateur";
+  }
+});
 
   // Toggle menu
   const toggleMenu = () => {
@@ -136,5 +154,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 });
+
 
 
