@@ -27,6 +27,16 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
 }
+/*VERSION PC MOBILE*/
+/* Mode ordinateur simulé */
+.desktop-mode {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  transform: scale(0.9);
+  transform-origin: top center;
+  transition: all 0.4s ease-in-out; /* transition fluide */
+}
 
 /* ===== NAVBAR ===== */
 nav {
@@ -402,3 +412,4 @@ footer {
     padding: 3rem 1rem;
   }
 }
+
