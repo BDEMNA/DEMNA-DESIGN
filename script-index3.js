@@ -19,16 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     burger.innerHTML = "&#9776;"; // icône ☰
     nav.insertBefore(burger, menu);
   }
-/*VERSION PC MOBILE*/
-/* Mode ordinateur simulé */
-.desktop-mode {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  transform: scale(0.9);
-  transform-origin: top center;
-  transition: all 0.4s ease-in-out; /* transition fluide */
-}
 
   // Toggle menu
   const toggleMenu = () => {
@@ -146,4 +136,5 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 });
+
 
