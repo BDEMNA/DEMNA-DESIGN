@@ -1,156 +1,512 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demna Design - L’empreinte créative qui affirme vos projets</title>
-  <link rel="stylesheet" href="style-index3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Développeur Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 80px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 4rem 2rem;
+        }
+
+        .intro-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .intro-content h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .problems-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .problem-card {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateX(10px);
+        }
+
+        .problem-card h3 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 3rem 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:hover {
+            background: #f5f5f5;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .type-name {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 1.1rem;
+        }
+
+        /* Technical Forms Section */
+        .forms-explanation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .form-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .form-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .form-card h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            th, td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <!-- ===== NAVBAR ===== -->
-  <nav>
-    <img src="images/logo.png" alt="Logo Demna Design" class="logo">
-    <ul>
-      <li><a href="#hero">Accueil</a></li>
-      <li><a href="#pricing">Packs</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#values">Valeurs</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- ===== HERO AVEC VIDEO ===== -->
-  <section id="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-      <source src="videos/intro.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo HTML5.
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Demna Design</h1>
-      <p>L’empreinte créative qui affirme vos projets</p>
-      <a href="#pricing" class="btn">Découvrir nos packs</a>
-    </div>
-  </section>
-
-  <!-- ===== PACKS ===== -->
-<section id="pricing">
-  <h2>Nos Packs</h2>
-  <div class="pack-container">
-    <div class="pack">
-      <img src="images/pack-starter.png" alt="Pack Vitrine">
-      <h3>Pack Vitrine</h3>
-      <p>Un site simple et élégant pour présenter votre activité.</p>
-    </div>
-    <div class="pack">
-      <img src="images/pack-standard.png" alt="Pack Standard">
-      <h3>Pack E-commerce/standard</h3>
-      <p>Une boutique en ligne complète et optimisée.</p>
-    </div>
-    <div class="pack">
-      <img src="images/pack-premium.png" alt="Pack Identité Visuelle">
-      <h3>Pack Identité Visuelle</h3>
-      <p>Logo, charte graphique et supports de communication.</p>
-    </div>
-  </div>
-  <a href="packs.html" class="btn">Voir plus</a>
-</section>
-
-
-  <!-- ===== SERVICES ===== -->
-  <section id="services">
-    <h2>Nos Services</h2>
-    <div class="service-container">
-      <div class="service">🎨 Design & Identité visuelle</div>
-      <div class="service">💻 Web & Optimisation</div>
-      <div class="service">🪵 Artisanat & Création</div>
-      <div class="service">📑 Accompagnement stratégique</div>
-    </div>
-    <a href="services.html" class="btn">Voir plus</a>
-  </section>
-
-  <!-- ===== VALEURS ===== -->
-  <section id="values">
-    <h2>Nos Valeurs</h2>
-    <div class="values-container">
-      <div class="value">Clarté : chaque prestation est expliquée et détaillée.</div>
-      <div class="value">Créativité : une empreinte artistique unique pour chaque projet.</div>
-      <div class="value">Adaptation : des solutions pensées pour le contexte gabonais.</div>
-      <div class="value">Transparence : tarification modulaire et sans ambiguïté.</div>
-    </div>
-    <a href="valeurs.html" class="btn">Voir plus</a>
-  </section>
-
-  <!-- ===== PORTFOLIO ===== -->
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="images/Projet1.png" alt="Projet 1">
-        <div class="portfolio-overlay">
-          <h3>Projet 1</h3>
-          <a href="https://bdemna.github.io/Wy-Trinity/">Voir plus</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🚀 Mon Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="grille.php">📊 Grille tarifaire</a></li>
+                <li><a href="contact.html">📧 Contact</a></li>
+                <li><a href="projet.php">💼 Mes projets</a></li>
+                <li><a href="mon_cv.php">📄 Mon CV</a></li>
+            </ul>
         </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="images/Projet2.png" alt="Projet 2">
-        <div class="portfolio-overlay">
-          <h3>Projet 2</h3>
-          <a href="https://bdemna.github.io/Horizon/">Voir plus</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Développeur Web Professionnel</h1>
+        <p>Créons ensemble votre présence digitale avec des solutions web adaptées à vos besoins</p>
+    </section>
+
+    <!-- Introduction: L'importance d'un site web -->
+    <section class="intro-section">
+        <div class="intro-content">
+            <h2>🌐 Pourquoi un site internet est indispensable aujourd'hui ?</h2>
+            <p>Un site internet est votre carte de visite digitale disponible 24h/24 et 7j/7. Dans un monde de plus en plus connecté, ne pas avoir de présence en ligne, c'est laisser la place à vos concurrents.</p>
+            
+            <p><strong>Un site web résout des problèmes concrets :</strong></p>
+            
+            <div class="problems-list">
+                <div class="problem-card">
+                    <h3>🌍 Manque de visibilité</h3>
+                    <p>Atteignez des clients partout dans le monde sans limites géographiques ni horaires d'ouverture.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>✨ Crédibilité faible</h3>
+                    <p>Montrez votre professionnalisme avec un design moderne et des témoignages clients authentiques.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>⏰ Horaires limités</h3>
+                    <p>Présentez vos services ou produits à toute heure, même la nuit, sans vous déplacer.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>🎯 Concurrence ignorée</h3>
+                    <p>Surpassez les rivaux qui n'ont pas encore investi dans leur présence digitale.</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 1.2rem; font-weight: 600; color: #667eea;">
+                Un site bien conçu génère des leads, booste vos ventes et renforce votre marque. Choisissez le type adapté à vos besoins !
+            </p>
         </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="images/Projet3.png" alt="Projet 3">
-        <div class="portfolio-overlay">
-          <h3>Projet 3</h3>
-          <a href="https://bdemna.github.io/Eduarchive1.1/">Voir plus</a>
+    </section>
+
+    <!-- Section 1: Types de sites web -->
+    <section class="container">
+        <h2 class="section-title">📱 Les différents types de sites web</h2>
+        <p class="section-subtitle">Chaque projet a ses spécificités - découvrez celui qui correspond à vos besoins</p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type de site</th>
+                        <th>Description et objectif principal</th>
+                        <th>Type de pages recommandé</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="type-name">Site vitrine</td>
+                        <td>Présente une activité, entreprise ou service (qui vous êtes, vos services, contacts). Idéal pour freelances ou PME.</td>
+                        <td>Statique ou semi-dynamique</td>
+                    </tr>
+                    <tr>
+                        <td class="type-name">Site e-commerce</td>
+                        <td>Permet de vendre des produits ou services en ligne avec panier et paiements. Sert à générer des revenus directs.</td>
+                        <td>Dynamique</td>
+                    </tr>
+                    <tr>
+                        <td class="type-name">Portfolio</td>
+                        <td>Met en avant vos réalisations (projets, photos, vidéos). Parfait pour créatifs, développeurs ou artistes.</td>
+                        <td>Statique ou semi-dynamique</td>
+                    </tr>
+                    <tr>
+                        <td class="type-name">Blog</td>
+                        <td>Publie des articles, tutoriels ou actualités pour attirer du trafic et fidéliser une audience.</td>
+                        <td>Semi-dynamique ou dynamique</td>
+                    </tr>
+                    <tr>
+                        <td class="type-name">Site événementiel</td>
+                        <td>Promote un événement temporaire (conférence, mariage, promo). Compte à rebours et inscriptions.</td>
+                        <td>Statique ou semi-dynamique</td>
+                    </tr>
+                    <tr>
+                        <td class="type-name">Site institutionnel</td>
+                        <td>Informe sur une organisation (assos, ONG) sans vendre : actualités, équipe, missions.</td>
+                        <td>Semi-dynamique ou dynamique</td>
+                    </tr>
+                    <tr>
+                        <td class="type-name">Plateforme / app métier</td>
+                        <td>Automatise des processus internes (inscriptions, gestion étudiants, dashboards). Pour entreprises.</td>
+                        <td>Dynamique</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== FAQ ===== -->
-  <section id="faq">
-    <h2>Questions fréquentes</h2>
-    <div class="faq-item">
-      <h3>Pourquoi choisir Demna Design ?</h3>
-      <p>Parce que nous allions rigueur technique, créativité artisanale et transparence dans chaque projet.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Comment se déroule un projet ?</h3>
-      <p>1. Choix du pack → 2. Personnalisation des options → 3. Livraison clé en main.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Quels sont vos tarifs ?</h3>
-      <p>Nos tarifs sont modulaires et détaillés par livrable (pages, images, vidéos) pour plus de clarté.</p>
-    </div>
-    <a href="faq.html" class="btn">Voir plus</a>
-  </section>
+    <!-- Section 2: Grille tarifaire -->
+    <section class="container" style="background: #f8f9ff; padding: 4rem 2rem; margin: 0; max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">💰 Grille tarifaire et formes techniques</h2>
+            <p class="section-subtitle">Des solutions adaptées à tous les budgets avec une qualité professionnelle garantie</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type de site</th>
+                            <th>Forme technique</th>
+                            <th>Description et prix conseillé</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="type-name">Site vitrine simple</td>
+                            <td>Statique</td>
+                            <td>Pages fixes (HTML pur), sans base de données. Rapide et économique. <span class="price">150 000 FCFA</span></td>
+                        </tr>
+                        <tr>
+                            <td class="type-name">Site vitrine évolué</td>
+                            <td>Semi-dynamique</td>
+                            <td>Contenus modifiables (CMS simple comme WordPress). Ajoute blog/galerie. <span class="price">300 000 FCFA</span></td>
+                        </tr>
+                        <tr>
+                            <td class="type-name">Boutique en ligne</td>
+                            <td>Dynamique</td>
+                            <td>E-commerce complet (produits, panier, paiements sécurisés). <span class="price">450 000 FCFA</span></td>
+                        </tr>
+                        <tr>
+                            <td class="type-name">Portfolio créatif</td>
+                            <td>Semi-dynamique</td>
+                            <td>Galerie interactive de projets avec filtres. Facile à updater. <span class="price">300 000 FCFA</span></td>
+                        </tr>
+                        <tr>
+                            <td class="type-name">Blog personnel</td>
+                            <td>Dynamique</td>
+                            <td>Articles avec commentaires, SEO avancé, newsletters. <span class="price">450 000 FCFA</span></td>
+                        </tr>
+                        <tr>
+                            <td class="type-name">Site événementiel</td>
+                            <td>Statique</td>
+                            <td>Design temporaire avec compte à rebours. Pas de maintenance lourde. <span class="price">150 000 FCFA</span></td>
+                        </tr>
+                        <tr>
+                            <td class="type-name">Plateforme campus</td>
+                            <td>Dynamique</td>
+                            <td>Gestion users, dashboards, inscriptions (ex. : plateforme universitaire). <span class="price">600 000 – 1 200 000 FCFA</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      📧 Email : <a href="daarel700@gmail.com">tonemail@example.com</a><br>
-      📱 WhatsApp : +241 74 10 07 17<br>
-      📍 Libreville, Gabon
-    </p>
-    <a href="contact.html" class="btn">Voir plus</a>
-  </section>
+    <!-- Section 3: Explications des formes techniques -->
+    <section class="container">
+        <h2 class="section-title">⚙️ Les différentes formes techniques expliquées</h2>
+        <p class="section-subtitle">Comprendre la technologie derrière chaque type de site</p>
+        
+        <div class="forms-explanation">
+            <div class="form-card">
+                <div class="icon">📄</div>
+                <h3>Statique</h3>
+                <p><strong>Définition :</strong> Contenu figé, écrit directement en HTML/CSS. Aucune base de données, pages identiques pour tous les visiteurs.</p>
+                <p><strong>Idéal pour :</strong> Budgets serrés, sites vitrines simples, landing pages, sites événementiels temporaires.</p>
+                <p><strong>Avantages :</strong> Très rapide, sécurisé, peu coûteux en hébergement.</p>
+            </div>
+            
+            <div class="form-card">
+                <div class="icon">⚡</div>
+                <h3>Semi-dynamique</h3>
+                <p><strong>Définition :</strong> Contenu modifiable via un CMS (WordPress, etc.) sans coder. Pas de base de données complexe, mais formulaires et galeries dynamiques.</p>
+                <p><strong>Idéal pour :</strong> Équilibre coût/performance, sites vitrines évolués, portfolios interactifs, blogs simples.</p>
+                <p><strong>Avantages :</strong> Facile à mettre à jour, flexible, bon rapport qualité/prix.</p>
+            </div>
+            
+            <div class="form-card">
+                <div class="icon">🚀</div>
+                <h3>Dynamique</h3>
+                <p><strong>Définition :</strong> Site interactif avec base de données (MySQL), comptes utilisateurs, paniers, dashboards. Contenu personnalisé par visiteur.</p>
+                <p><strong>Idéal pour :</strong> E-commerce, plateformes métier, réseaux sociaux, applications web complexes, blogs professionnels.</p>
+                <p><strong>Avantages :</strong> Fonctionnalités avancées, évolutif, automatisation possible.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Demna Design – Tous droits réservés</p>
-  </footer>
-
-  <script src="script-index3.js"></script>
-  <!-- Icône toggle mode (affichée uniquement sur mobile) -->
-<div id="toggleDesktop" class="desktop-toggle" title="Basculer en mode ordinateur">
-  🖥️
-</div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mon Portfolio - Tous droits réservés</p>
+        <p>Développeur Web Professionnel | Libreville, Gabon</p>
+    </footer>
 </body>
 </html>
-
