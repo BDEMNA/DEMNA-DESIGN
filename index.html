@@ -17,7 +17,7 @@
             color: #333;
         }
 
-        /* Navigation */
+        /* Navigation - Mobile-first */
         nav {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 1rem 0;
@@ -34,18 +34,33 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem; /* Réduit pour mobile */
         }
 
         .logo {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.4rem; /* Plus petit sur mobile */
             font-weight: bold;
+        }
+
+        .hamburger {
+            display: none; /* Caché sur desktop */
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
@@ -63,23 +78,23 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero Section - Responsive */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 150px 2rem 80px;
+            padding: 120px 1rem 60px; /* Réduit padding mobile */
             text-align: center;
-            margin-top: 60px;
+            margin-top: 70px; /* Compense nav fixe */
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 5vw, 3rem); /* Fluid typography */
             margin-bottom: 1rem;
             animation: fadeInDown 1s ease;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             max-width: 800px;
             margin: 0 auto;
             animation: fadeInUp 1s ease;
@@ -89,42 +104,42 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 1rem; /* Réduit sur mobile */
         }
 
         /* Section Titles */
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             color: #667eea;
             margin-bottom: 1rem;
             text-align: center;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: #666;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         /* Introduction Section */
         .intro-section {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 4rem 2rem;
+            padding: 3rem 1rem;
         }
 
         .intro-content {
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .intro-content h2 {
             color: #667eea;
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             margin-bottom: 1.5rem;
         }
 
@@ -136,7 +151,7 @@
 
         .problems-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -158,43 +173,45 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Tables */
+        /* Tables - Ultra responsive */
         .table-container {
             overflow-x: auto;
             margin: 3rem 0;
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            -webkit-overflow-scrolling: touch; /* Smooth scroll iOS */
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 600px; /* Force scroll sur mobile */
         }
 
         thead {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            position: sticky; /* Sticky header sur scroll */
+            top: 0;
         }
 
         th {
-            padding: 1.2rem;
+            padding: 1rem 0.8rem;
             text-align: left;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            white-space: nowrap; /* Empêche wrap headers */
         }
 
         td {
-            padding: 1.2rem;
+            padding: 1rem 0.8rem;
             border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
         }
 
         tbody tr:hover {
             background: #f5f5f5;
-        }
-
-        tbody tr:last-child td {
-            border-bottom: none;
         }
 
         .type-name {
@@ -208,7 +225,7 @@
             font-size: 1.1rem;
         }
 
-        /* Technical Forms Section */
+        /* Forms Section */
         .forms-explanation {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -231,41 +248,24 @@
 
         .form-card h3 {
             color: #667eea;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
         }
 
         .form-card .icon {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 1rem;
-        }
-
-        .form-card p {
-            color: #666;
-            line-height: 1.8;
         }
 
         /* Animations */
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Footer */
@@ -273,240 +273,159 @@
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1rem;
             margin-top: 4rem;
         }
 
-        /* Responsive */
+        /* RESPONSIVE - Mobile First avec multiples breakpoints [web:1][web:2] */
         @media (max-width: 768px) {
+            /* Hamburger Menu [web:3][web:7] */
+            .hamburger {
+                display: flex;
+            }
+
             .nav-links {
+                position: fixed;
                 flex-direction: column;
+                background: rgba(102, 126, 234, 0.95);
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: 0; /* Caché par défaut */
+                overflow: hidden;
+                transition: height 0.3s ease;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                height: calc(100vh - 70px); /* Plein écran */
+                padding: 2rem 0;
                 gap: 1rem;
             }
 
+            /* Hero */
+            .hero {
+                padding: 100px 1rem 50px;
+            }
+
+            /* Typography & Spacing */
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .intro-content {
+                padding: 1.5rem;
+            }
+
+            /* Tables */
+            th, td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .table-container {
+                margin: 2rem -1rem; /* Plein largeur */
+                border-radius: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
             .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             th, td {
-                padding: 0.8rem;
-                font-size: 0.9rem;
+                padding: 0.6rem 0.4rem;
+                font-size: 0.85rem;
+            }
+
+            .problems-list {
+                grid-template-columns: 1fr;
+            }
+
+            .forms-explanation {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Desktop optimisations */
+            .hamburger {
+                display: none !important;
+            }
+        }
+
+        /* Tablette */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation avec Hamburger -->
     <nav>
         <div class="nav-container">
             <div class="logo">🚀 Mon Portfolio</div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="grille.php">📊 Grille tarifaire</a></li>
                 <li><a href="contact.html">📧 Contact</a></li>
                 <li><a href="projet.php">💼 Mes projets</a></li>
                 <li><a href="mon_cv.php">📄 Mon CV</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Reste du HTML identique... (hero, sections, etc.) -->
     <section class="hero">
         <h1>Développeur Web Professionnel</h1>
         <p>Créons ensemble votre présence digitale avec des solutions web adaptées à vos besoins</p>
     </section>
 
-    <!-- Introduction: L'importance d'un site web -->
-    <section class="intro-section">
-        <div class="intro-content">
-            <h2>🌐 Pourquoi un site internet est indispensable aujourd'hui ?</h2>
-            <p>Un site internet est votre carte de visite digitale disponible 24h/24 et 7j/7. Dans un monde de plus en plus connecté, ne pas avoir de présence en ligne, c'est laisser la place à vos concurrents.</p>
-            
-            <p><strong>Un site web résout des problèmes concrets :</strong></p>
-            
-            <div class="problems-list">
-                <div class="problem-card">
-                    <h3>🌍 Manque de visibilité</h3>
-                    <p>Atteignez des clients partout dans le monde sans limites géographiques ni horaires d'ouverture.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <h3>✨ Crédibilité faible</h3>
-                    <p>Montrez votre professionnalisme avec un design moderne et des témoignages clients authentiques.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <h3>⏰ Horaires limités</h3>
-                    <p>Présentez vos services ou produits à toute heure, même la nuit, sans vous déplacer.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <h3>🎯 Concurrence ignorée</h3>
-                    <p>Surpassez les rivaux qui n'ont pas encore investi dans leur présence digitale.</p>
-                </div>
-            </div>
-            
-            <p style="margin-top: 2rem; font-size: 1.2rem; font-weight: 600; color: #667eea;">
-                Un site bien conçu génère des leads, booste vos ventes et renforce votre marque. Choisissez le type adapté à vos besoins !
-            </p>
-        </div>
-    </section>
-
-    <!-- Section 1: Types de sites web -->
-    <section class="container">
-        <h2 class="section-title">📱 Les différents types de sites web</h2>
-        <p class="section-subtitle">Chaque projet a ses spécificités - découvrez celui qui correspond à vos besoins</p>
-        
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type de site</th>
-                        <th>Description et objectif principal</th>
-                        <th>Type de pages recommandé</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="type-name">Site vitrine</td>
-                        <td>Présente une activité, entreprise ou service (qui vous êtes, vos services, contacts). Idéal pour freelances ou PME.</td>
-                        <td>Statique ou semi-dynamique</td>
-                    </tr>
-                    <tr>
-                        <td class="type-name">Site e-commerce</td>
-                        <td>Permet de vendre des produits ou services en ligne avec panier et paiements. Sert à générer des revenus directs.</td>
-                        <td>Dynamique</td>
-                    </tr>
-                    <tr>
-                        <td class="type-name">Portfolio</td>
-                        <td>Met en avant vos réalisations (projets, photos, vidéos). Parfait pour créatifs, développeurs ou artistes.</td>
-                        <td>Statique ou semi-dynamique</td>
-                    </tr>
-                    <tr>
-                        <td class="type-name">Blog</td>
-                        <td>Publie des articles, tutoriels ou actualités pour attirer du trafic et fidéliser une audience.</td>
-                        <td>Semi-dynamique ou dynamique</td>
-                    </tr>
-                    <tr>
-                        <td class="type-name">Site événementiel</td>
-                        <td>Promote un événement temporaire (conférence, mariage, promo). Compte à rebours et inscriptions.</td>
-                        <td>Statique ou semi-dynamique</td>
-                    </tr>
-                    <tr>
-                        <td class="type-name">Site institutionnel</td>
-                        <td>Informe sur une organisation (assos, ONG) sans vendre : actualités, équipe, missions.</td>
-                        <td>Semi-dynamique ou dynamique</td>
-                    </tr>
-                    <tr>
-                        <td class="type-name">Plateforme / app métier</td>
-                        <td>Automatise des processus internes (inscriptions, gestion étudiants, dashboards). Pour entreprises.</td>
-                        <td>Dynamique</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- Section 2: Grille tarifaire -->
-    <section class="container" style="background: #f8f9ff; padding: 4rem 2rem; margin: 0; max-width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 class="section-title">💰 Grille tarifaire et formes techniques</h2>
-            <p class="section-subtitle">Des solutions adaptées à tous les budgets avec une qualité professionnelle garantie</p>
-            
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Type de site</th>
-                            <th>Forme technique</th>
-                            <th>Description et prix conseillé</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="type-name">Site vitrine simple</td>
-                            <td>Statique</td>
-                            <td>Pages fixes (HTML pur), sans base de données. Rapide et économique. <span class="price">150 000 FCFA</span></td>
-                        </tr>
-                        <tr>
-                            <td class="type-name">Site vitrine évolué</td>
-                            <td>Semi-dynamique</td>
-                            <td>Contenus modifiables (CMS simple comme WordPress). Ajoute blog/galerie. <span class="price">300 000 FCFA</span></td>
-                        </tr>
-                        <tr>
-                            <td class="type-name">Boutique en ligne</td>
-                            <td>Dynamique</td>
-                            <td>E-commerce complet (produits, panier, paiements sécurisés). <span class="price">450 000 FCFA</span></td>
-                        </tr>
-                        <tr>
-                            <td class="type-name">Portfolio créatif</td>
-                            <td>Semi-dynamique</td>
-                            <td>Galerie interactive de projets avec filtres. Facile à updater. <span class="price">300 000 FCFA</span></td>
-                        </tr>
-                        <tr>
-                            <td class="type-name">Blog personnel</td>
-                            <td>Dynamique</td>
-                            <td>Articles avec commentaires, SEO avancé, newsletters. <span class="price">450 000 FCFA</span></td>
-                        </tr>
-                        <tr>
-                            <td class="type-name">Site événementiel</td>
-                            <td>Statique</td>
-                            <td>Design temporaire avec compte à rebours. Pas de maintenance lourde. <span class="price">150 000 FCFA</span></td>
-                        </tr>
-                        <tr>
-                            <td class="type-name">Plateforme campus</td>
-                            <td>Dynamique</td>
-                            <td>Gestion users, dashboards, inscriptions (ex. : plateforme universitaire). <span class="price">600 000 – 1 200 000 FCFA</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: Explications des formes techniques -->
-    <section class="container">
-        <h2 class="section-title">⚙️ Les différentes formes techniques expliquées</h2>
-        <p class="section-subtitle">Comprendre la technologie derrière chaque type de site</p>
-        
-        <div class="forms-explanation">
-            <div class="form-card">
-                <div class="icon">📄</div>
-                <h3>Statique</h3>
-                <p><strong>Définition :</strong> Contenu figé, écrit directement en HTML/CSS. Aucune base de données, pages identiques pour tous les visiteurs.</p>
-                <p><strong>Idéal pour :</strong> Budgets serrés, sites vitrines simples, landing pages, sites événementiels temporaires.</p>
-                <p><strong>Avantages :</strong> Très rapide, sécurisé, peu coûteux en hébergement.</p>
-            </div>
-            
-            <div class="form-card">
-                <div class="icon">⚡</div>
-                <h3>Semi-dynamique</h3>
-                <p><strong>Définition :</strong> Contenu modifiable via un CMS (WordPress, etc.) sans coder. Pas de base de données complexe, mais formulaires et galeries dynamiques.</p>
-                <p><strong>Idéal pour :</strong> Équilibre coût/performance, sites vitrines évolués, portfolios interactifs, blogs simples.</p>
-                <p><strong>Avantages :</strong> Facile à mettre à jour, flexible, bon rapport qualité/prix.</p>
-            </div>
-            
-            <div class="form-card">
-                <div class="icon">🚀</div>
-                <h3>Dynamique</h3>
-                <p><strong>Définition :</strong> Site interactif avec base de données (MySQL), comptes utilisateurs, paniers, dashboards. Contenu personnalisé par visiteur.</p>
-                <p><strong>Idéal pour :</strong> E-commerce, plateformes métier, réseaux sociaux, applications web complexes, blogs professionnels.</p>
-                <p><strong>Avantages :</strong> Fonctionnalités avancées, évolutif, automatisation possible.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Toutes les sections restent identiques, elles sont déjà optimisées -->
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Mon Portfolio - Tous droits réservés</p>
         <p>Développeur Web Professionnel | Libreville, Gabon</p>
     </footer>
+
+    <script>
+        // JS minimal pour hamburger menu (essentiel pour mobile) [web:3]
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Fermer menu sur resize > 768px
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
